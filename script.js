@@ -14,3 +14,8 @@ const lastMovieRating = +promt('На сколько оцените его?', '8.
 const movies = {
     lastMovieTitle: lastMovieRating
 };
+
+console.log(personalMovieDB.count);
+console.log(personalMovieDB.privat);
+console.log(movies);
+console.log(movies['lastMovieTitle']);
