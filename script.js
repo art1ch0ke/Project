@@ -9,23 +9,23 @@ const personalMovieDB = {
     privat: false
 };
 let i = 0;
-do {
+for (let i = 0; i < 2; i++) {
     let lastMovieTitle = prompt('Один из последних просмотренных фильмов?', 'Logan'),
         lastMovieRating = prompt('На сколько оцените его?', '8.1');
     if (lastMovieTitle != null && lastMovieRating != null && lastMovieTitle != '' && lastMovieTitle.length <= 50) {
             personalMovieDB['movies'][lastMovieTitle] = lastMovieRating; 
-            i++
     }
     else {
-        alert('Ошибка, попробуйте ещё раз!')
+        alert('Ошибка, попробуйте ещё раз!');
+        i--;
     }
-}while (i < 2);
+}
 
-if (personalMovieDB.count < 10) {
+if (personalMovieDB.count <= 10) {
     alert('Просмотрено довольно мало фильмов');
 } else if (personalMovieDB.count < 30) {
         alert('Вы классический зритель');
-} else if (personalMovieDB.count > 30) {
+} else if (personalMovieDB.count >= 30) {
         alert('Вы киноман');
 } else {
         alert('Произошла ошибка');
