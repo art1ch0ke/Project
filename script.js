@@ -1,3 +1,4 @@
+'use strict'
 const numberOfFilms = +prompt('Сколько фильмов Вы уже посмотрели?', '');
 
 const personalMovieDB = {
@@ -7,15 +8,27 @@ const personalMovieDB = {
     genres: [],
     privat: false
 };
+let i = 0;
+do {
+    let lastMovieTitle = prompt('Один из последних просмотренных фильмов?', 'Logan'),
+        lastMovieRating = prompt('На сколько оцените его?', '8.1');
+    if (lastMovieTitle != null && lastMovieRating != null && lastMovieTitle != '' && lastMovieTitle.length <= 50) {
+            personalMovieDB['movies'][lastMovieTitle] = lastMovieRating; 
+            i++
+    }
+    else {
+        alert('Ошибка, попробуйте ещё раз!')
+    }
+}while (i < 2);
 
-let lastMovieTitle = prompt('Один из последних просмотренных фильмов?', 'Logan'),
-      lastMovieRating = +prompt('На сколько оцените его?', '8.1');
+if (personalMovieDB.count < 10) {
+    alert('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count < 30) {
+        alert('Вы классический зритель');
+} else if (personalMovieDB.count > 30) {
+        alert('Вы киноман');
+} else {
+        alert('Произошла ошибка');
+}
 
-personalMovieDB['movies'][lastMovieTitle] = lastMovieRating;
-
-lastMovieTitle = prompt('Один из последних просмотренных фильмов?', 'No Way Home');
-lastMovieRating = +prompt('На сколько оцените его?', '7.9');
-
-personalMovieDB['movies'][lastMovieTitle] = lastMovieRating;
-
-// console.log(personalMovieDB.movies);
+console.log(personalMovieDB.movies);
